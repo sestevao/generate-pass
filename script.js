@@ -1,6 +1,6 @@
-const pwEl = document.getElementById('pw');
+const passwordEl = document.getElementById('pw');
 const copyEl = document.getElementById('copy');
-const lenEl = document.getElementById('len');
+const lengthEl = document.getElementById('len');
 const upperEl = document.getElementById('upper');
 const lowerEl = document.getElementById('lower');
 const numberEl = document.getElementById('number');
@@ -29,7 +29,7 @@ function getSymbol(){
 }
 
 function generatePassword(){
-    const len = lenEl.value;
+    const len = lengthEl.value;
     let password = '';
 
     if(upperEl.checked){
@@ -48,12 +48,12 @@ function generatePassword(){
         password += getSymbol();
     }
 
-    for(let i=password.length-1; i<len; i++){
+    for(let i=password.length; i<len; i++){
         const x = generateX();
         password += x;
     }
 
-    pwEl.innerText = password;
+    passwordEl.innerText = password;
 }
 
 function generateX(){
@@ -84,7 +84,7 @@ generateEl.addEventListener('click', generatePassword);
 
 copyEl.addEventListener('click', () => {
     const textarea = document.createElement('textarea');
-    const password = pwEl.innerText;
+    const password = passwordEl.innerText;
 
     if(!password){ return; }
 
